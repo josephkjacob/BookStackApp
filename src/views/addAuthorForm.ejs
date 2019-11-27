@@ -50,7 +50,7 @@
       <div id="content-container">
           <div class="container-reg">
               <h1>Add Author</h1>
-              <form name="addBook" id="regForm" action="/authors/save" method="POST" onsubmit="return validateForm()">
+              <form name="addBook" id="regForm" action="/authors/save" method="POST" onsubmit="return validateForm()" enctype="multipart/form-data">
                   <table cellpadding="10" cellspacing="0">
                       <tr>
                           <td><label for="title"> Author: </label><span class="required-star">*</span></td>
@@ -59,12 +59,12 @@
                       <tr>
                           <td>Book: <span class="required-star">*</span></td>
                           <td>
-                              <input type="text" name="book" id="" placeholder="Book name" required>
+                              <input type="text" name="books" id="" placeholder="Book name" required>
                           </td>
                       </tr>
                       <tr>
                           <td>Award:<span class="required-star">*</span></td>
-                          <td><input type="text" name="award" id="" placeholder="Award" required></td>
+                          <td><input type="text" name="awards" id="" placeholder="Award" required></td>
                       </tr>
                       <tr>
                         <td>Description:<span class="required-star">*</span></td>
@@ -72,7 +72,7 @@
                     </tr>
                       <tr>
                           <td>Image:<span class="required-star">*</span></td>
-                          <td><input type="text" name="image" id="" placeholder="Image path" required><br><span style="color: rgb(13, 32, 66);">example: /images/mt.jpg</span></td>
+                          <td><input type="file" name="file" id="" accept="image/*" required><br><span style="color: rgb(13, 32, 66);">example: /images/mt.jpg</span></td>
                       </tr>
                       
                      

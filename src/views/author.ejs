@@ -39,17 +39,17 @@
                 <div class="row">
                     <div class="col-md-1"></div>
                     <div  class="col-md-10">
-                        <h1 class="text-white">author.name</h1>
+                        <h1 class="text-white"><%=author.Name%></h1>
                         <div class="collections">
                             
                                   
                                 <div class="jumbotron jumbotron-fluid">
                                     <div class="media">
-                                        <img src="<%=author.image%>" class=" img-book" alt="APj" width="150px" >
+                                        <img src="<%=imagePath%><%=author.Image%>" class=" img-book" alt="APj" width="150px" >
                                         <div class="media-body">
-                                            <h1 class="mt-0"><%=author.name%></h1>
-                                            <h5> <span class="label label-default"><%=author.book %></span><strong><span class="badge badge-secondary"><%=author.award%> </span></strong></h5>
-                                            <%=author.description %>  <br><br>
+                                            <h1 class="mt-0"><%=author.Name%></h1>
+                                            <h5> <span class="label label-default"><%=author.Books %></span><strong><span class="badge badge-secondary"><%=author.Awards%> </span></strong></h5>
+                                            <%=author.Description %>  <br><br>
                                             <h5>
                                                 <small><a href="./" class="text-muted">Back</a></small>
                                                 </h5>

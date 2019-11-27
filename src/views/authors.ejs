@@ -12,16 +12,7 @@
     <script src="/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
     <script src="/js/jquery-3.4.1.min.js"></script>
     <script>
-      function validateForm(){
-        let fName = document.forms["loginForm"]["firstName"].value;
-        let passwd = document.forms["loginForm"]["password"].value;
-        if(fName == "" || passwd == ""){
-          alert("Please insert values");
-          return false;
-        }
-        
-        
-      }
+      
     </script>
 </head>
 <body>
@@ -56,15 +47,15 @@
                                   
                                 <div class="jumbotron jumbotron-fluid">
                                     <div class="media">
-                                        <img src="<%=authors[i].image%>" class=" img-book" alt="APj" width="150px" >
+                                        <img src="<%=imagePath                        %><%=authors[i].Image%>" class=" img-book" alt="APj" width="150px" >
                                         <div class="media-body">
-                                            <h1 class="mt-0"><%=authors[i].name%></h1>
-                                            <h5> <span class="badge badge-secondary"><%=authors[i].book%> </span></h5>
-                                            <h4><span class="label label-default"><%=authors[i].award %></span></h4>
+                                            <h1 class="mt-0"><%=authors[i].Name%></h1>
+                                            <h5> <span class="badge badge-secondary"><%=authors[i].Books%> </span></h5>
+                                            <h4><span class="label label-default"><%=authors[i].Awards %></span></h4>
                                             <h5>
-                                                <small><a href="/authors/<%=i %>" class="text-muted">Read More</a>
-                                                    <a href="/authors/edit/<%=i %>" class="text-muted- edit-disabled" >Edit</a>
-                                                    <a href="/authors/remove/<%=i %>" class="text-muted">Remove</a>
+                                                <small><a href="/authors/<%=authors[i]._id %>" class="text-muted">Read More</a>
+                                                    <a href="/authors/edit/<%=authors[i]._id %>" class="text-muted- edit-disabled" >Edit</a>
+                                                    <a href="/authors/remove/<%=authors[i]._id %>" class="text-muted">Remove</a>
                                                 </small>
                                                 </h5>
                                                
