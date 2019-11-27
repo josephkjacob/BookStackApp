@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to Book Stack</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="stylesheet" href="/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    
+    <script>
+      function validateForm(){
+        let passwd = document.forms["regForm"]["password"].value;
+        let cPasswd = document.forms["regForm"]["confirmPassword"].value;
+       if(passwd != cPasswd){
+          alert("Password should be same");
+          document.forms["regForm"]["password"].select();
+          return false;
+        }
+
+       let gender = document.getElementsByName('gender');
+        let checked = false;
+        for(let i = 0; i < gender.length; i++){
+            console.log(gender[i].checked);
+            if(gender[i].checked){
+               checked = true;
+            }
+        }
+        if(!checked){
+            alert("Please select gender");
+            return false;
+        }
+        
+      }
+      
+      
+    </script>
+</head>
+<body>
+        <header> 
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a href="/" class="navbar-brand mb-0 h1 ">BookStack</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mr-auto">
+                            
+                            <% for(var i = 0; i < nav.length; i++){%>
+                              <li class="nav-item <% if(nav[i].title === 'SignUp'){ %>active<% } %>">
+                                  <a class="nav-link" href='<%=nav[i].link %>'><%= nav[i].title%></a>
+                                </li>
+                           <% } %>
+                          
+                        </ul>
+                        
+                      </div>
+            </nav>
+        </header>
+        <div id="content-container">
+            <div class="container-reg">
+                <h1>Register as a new user</h1>
+                <h5>Complete the form below to create a new Internet Archive account.</h5>
+                <form name="regForm" id="regForm" action="/signup/register" method="POST" onsubmit="return validateForm()">
+                    <table cellpadding="10" cellspacing="0">
+                        <tr>
+                            <td><label for="fullName"> Full Name: </label><span class="required-star">*</span></td>
+                            <td><input type="text" name="fullName" id="" placeholder="Enter your name" required></td>
+                        </tr>
+                        <tr>
+                            <td>Email ID: <span class="required-star">*</span></td>
+                            <td>
+                                <input type="email" name="email" id="" placeholder="E-mail" required>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Password:<span class="required-star">*</span></td>
+                            <td><input type="password" name="password" id="" placeholder="Password" required></td>
+                        </tr>
+                        <tr>
+                            <td>Confirm Password:<span class="required-star">*</span></td>
+                            <td><input type="password" name="confirmPassword" id="" placeholder="Confirm password" required></td>
+                        </tr>
+                        <tr>
+                            <td>Contact Number:<span class="required-star">*</span></td>
+                            <td><input type="tel" name="contactNumber" id="" maxlength="10" minlength="10" placeholder="Phone number" required></td>
+                        </tr>
+                         <tr>
+                            <td>Gender:<span class="required-star">*</span></td>
+                            <td><input type="radio" name="gender" id="" value="male">Male
+                            <br>    
+                            <input type="radio" name="gender" id="" value="female">Female</td>
+                        </tr> 
+                        <tr>
+                            <td>Country / Location : </td>
+                            <td><select name="country" id="">
+                                <option value="ind" selected>India</option>
+                                <option value="us">USA</option>
+                                <option value="germany">Germany</option>
+                                <option value="eng">England</option>
+                            </select></td>
+                        </tr> 
+                        <tr>
+                            <td>Postal Address: </td>
+                            <td><textarea name="address" id="address" cols="50" rows="3" placeholder="Your address" ></textarea></td>
+                        </tr>
+                        <tr ><td colspan="2"><input type="checkbox" name="terms" id="terms"  onchange="document.getElementById('submit').disabled = !this.checked"> I have read and accept the <a href="#" class="text-dark">BookStack Privacy Policy</a> </td></tr>                     
+                        <tr><td></td><td><input type="submit" name="submit" id="submit" value="Register" class="btn btn-info" disabled></td></tr>
+                    </table>
+            
+
+                </form>
+            </div>
+        </div>
+        <footer class="page-footer font-small black bg-dark">
+    
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-3 text-light">© 2018 Copyright :
+                    <a href="#" class="mb-0 navbar-brand">BookStack.com</a>
+                </div>
+                <!-- Copyright -->
+                
+                </footer>
+                <!-- Footer -->
+        
+        
+        </body>
+        </html>

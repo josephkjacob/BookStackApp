@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to Book Stack</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="stylesheet" href="/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script>
+        function validateForm(){
+         let elements = document.forms["addBook"].elements;          
+          for(let i = 0; i < elements.length; i++){
+            if(elements[i].value.trim() == "")
+            {
+              alert("Feilds should not be empty");
+              elements[i].select();
+              return false;
+            }
+          }
+        } 
+      </script>
+	</head>
+	<body>
+      <header> 
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+              <a href="/" class="navbar-brand mb-0 h1 ">BookStack</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav mr-auto">
+                          
+                          <% for(var i = 0; i < nav.length; i++){%>
+                            <li class="nav-item <% if(nav[i].title === 'AddBook'){ %>active<% } %>">
+                                <a class="nav-link" href='<%=nav[i].link %>'><%= nav[i].title%></a>
+                              </li>
+                         <% } %>
+                        
+                      </ul>
+                      
+                    </div>
+          </nav>
+      </header>
+
+      <div id="content-container">
+        <div class="container-reg">
+            <h1>Add Book</h1>
+            <form name="addBook" id="regForm" action="/books/save" method="POST" onsubmit="return validateForm()">
+                <table cellpadding="10" cellspacing="0">
+                    <tr>
+                        <td><label for="title"> Title: </label><span class="required-star">*</span></td>
+                        <td><input type="text" name="title" id="" placeholder="Book title" required></td>
+                    </tr>
+                    <tr>
+                        <td>Author: <span class="required-star">*</span></td>
+                        <td>
+                            <input type="text" name="author" id="" placeholder="Author name" required>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Genre:<span class="required-star">*</span></td>
+                        <td><input type="text" name="genre" id="" placeholder="Genre" required></td>
+                    </tr>
+                    <tr>
+                      <td>Description:<span class="required-star">*</span></td>
+                      <td><textarea name="description" id="" cols="60" rows="6" placeholder="Description" required></textarea></td>
+                  </tr>
+                    <tr>
+                        <td>Image:<span class="required-star">*</span></td>
+                        <td><input type="text" name="image" id="" placeholder="Image path" required><br><span style="color: rgb(13, 32, 66);">example: /images/harrypotter.jpg</span></td>
+                    </tr>
+                    
+                   
+                    
+                    <tr><td></td><td><input type="submit" name="submit" id="submit" value="Add book" class="btn btn-info" ></td></tr>
+                </table>
+        
+
+            </form>
+        </div>
+    </div>
+
+<!---
+<div id="masthead">  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <h1><%=title%>
+          <p class="lead"></p>
+        </h1>                       
+      </div>
+      <div class="col-md-5">
+        <div class="well well-lg"> 
+          <div class="row">
+            <div class="col-sm-12">
+              
+			
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> 
+  </div>
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="top-spacer"> </div>
+      </div>
+    </div> 
+  </div>
+  
+</div>
+
+
+<div class="container">
+  <div class="row">
+    
+    <div class="col-md-12"> 
+      
+      <div class="panel">
+        <div class="panel-body">
+          <form action="/books/save" method="POST">
+            <table cellpadding="10px">
+                <tr>
+                    <td> <label for="title" > Title</label></td><td><input type="text" class="form-control" name="title" placeholder="Book title"><br><br></td>
+                </tr>
+                <tr>
+                    <td><label for="author">Author</label></td><td><input type="text" class="form-control" name="author" placeholder="Book author"><br><br></td>
+                </tr>
+                <tr>
+                    <td><label for="genre">Genre</label></td><td><input type="text" class="form-control" name="genre" id="" placeholder="Book genre"><br><br></td>
+                </tr>
+                <tr>
+                    <td><label for="image">Image</label></td><td><input type="text" class="form-control" name="image" id="" placeholder="Image file name"><span style="color: rgb(202, 202, 202);">example: /images/harrypotter.jpg</span><br><br></td>
+                </tr>
+                <tr>
+                    <td></td><td> <input type="submit" name="" id="" value="Add Book" class="btn btn-primary"></td>
+                </tr>
+            </table>
+             
+               
+            </form>
+          
+         
+        </div>
+      </div>
+                                                                                       
+	                                                
+                                                      
+   	</div>
+  </div>
+</div>
+                                                
+                                                                                
+<hr>-->
+
+
+
+   <!-- Footer -->
+   <footer class="page-footer font-small black bg-dark">
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3 text-light">© 2018 Copyright :
+        <a href="#" class="mb-0 navbar-brand">BookStack.com</a>
+      </div>
+      <!-- Copyright -->
+    
+    </footer>
+    <!-- Footer -->
+
+	
+	</body>
+</html>

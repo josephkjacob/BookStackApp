@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to Book Stack</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+    <link rel="stylesheet" href="/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <script src="/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    <script src="/js/jquery-3.4.1.min.js"></script>
+    <script src="/js/home.js">
+      
+    </script>
+</head>
+<body>
+    <header> 
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a href="#" class="navbar-brand mb-0 h1 ">BookStack</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        
+                        <% for(var i = 0; i < nav.length; i++){%>
+                          <li class="nav-item <% if(nav[i].title === 'Home'){ %>active<% } %>">
+                              <a class="nav-link" href='<%=nav[i].link %>'><%= nav[i].title%></a>
+                            </li>
+                       <% } %>
+                      
+                    </ul>
+                    
+                  </div>
+        </nav>
+    </header>
+    <div id="contnet-container">
+        <div class="home-bg">            
+            <img class="home-bg" src="/images/feature-brand-book.jpg" alt="book stack" width="100%">
+            <div class="book-home-txt-grp">
+              <h1 class="book-name-front text-center ">BookStack the Library Management System</h1>
+             <p class="book-hom-para">The best way to maintain, organise and handle countless books systematically is to implement a library management system software. This system completely automates all your library’s activities. You can find books in an instant, issue/reissue books quickly and manage all the data efficiently and orderly using this system. It also provides instant and accurate data regarding any type of book, thereby saving a lot of time and efforts.<br> 
+              <h3><span class="badge badge-warning text-center badge-txt">World’s Most Advanced Cloud-Based Library Management Software</span></h3>
+              <br><br>
+              <form action="/signup/login" method="GET"><input type="submit" class="btn btn-info book-hom-enter-btn float-right" value="Enter"></form>
+            
+            </p>
+            
+            </div>
+             
+        </div>
+       
+    </div>
+    <!-- Footer -->
+    <footer class="page-footer font-small black bg-dark">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 text-light">© 2018 Copyright :
+          <a href="#" class="mb-0 navbar-brand">BookStack.com</a>
+        </div>
+        <!-- Copyright -->
+      
+      </footer>
+      <!-- Footer -->
+
+    
+</body>
+</html>

@@ -1,0 +1,124 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #010e25 !important;
+    color: #fff;
+}
+.home-bg{
+    /*background: url("../images/feature-brand-book.jpg") no-repeat;
+    background-size: 100%;*/
+    position: relative;
+}
+.book-home-txt-grp{
+    position: absolute;
+    top: 200px;
+    width: 60%;
+    right: 0;
+    background-color: rgba(0, 0, 0, .5);
+    padding: 0 0 50px ;
+    margin-right: 50px;
+    padding: 0 30px 20px;
+}
+.book-name-front{
+    /*padding-top: 10px;*/
+    /*position: absolute;
+    top: 100px;
+    width: 60%;
+    right: 0;
+    height: 320px;*/
+    text-align: center;    
+    color: #fff;
+   /* margin-right: 50px;*/
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    
+}
+.book-hom-para{
+   /* position: absolute;
+    top: 200px;*/
+    /*color: white;
+    width: 80%;*/
+    /*width: 60%;*/
+   /* right: 0;*/
+    /*height: 200px;*/
+    text-align: center;
+    color: #fff;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    /*margin-right: 50px;*/
+    /*padding: 0 0 0 20px;*/
+    text-align: justify;
+   /* background-color: rgba(255,255,255,.5);*/
+    
+}
+.badge-txt{
+    width: 100%;
+}
+.book-hom-enter-btn{
+    /*position: absolute;
+    top: 350px;
+    right: 200px;*/
+    width: 200px;
+    font-weight: bold !important;
+    /*margin-right: 50px;*/
+}
+footer{
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+  
+}
+.container-reg{
+    width: 60%;
+    margin: 0 auto;
+}
+.required-star{
+    color: #FF0000;
+}
+.img-book{
+   /* padding: 10px;*/
+    height: 150px;
+    width: 150px;
+    border-radius: 75px;
+    display: block;
+    box-shadow: 0 0 10px #000;
+    margin: 10px 30px;
+}
+.login-container{
+    padding-top: 100px;;
+}
+.regForm label{
+    font-weight: bold;
+    color: green;
+}
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='tel'],
+select
+{
+    width: 250px;
+}
+.text-white{
+    margin: 30px ;
+}
+.media-body{
+    padding: 0 24px 0 10px;
+    text-align: justify;
+    color: #19191a;
+}
+#content-container{
+    color: white;
+    margin-bottom: 72px;
+}
+.jumbotron{
+    margin-bottom: 1px !important;
+    
+}
+.edit-disabled{
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    color: #acaca8;
+    margin: 0 20px 0 150px;
+}
