@@ -50,7 +50,7 @@
       <div id="content-container">
         <div class="container-reg">
             <h1>Add Book</h1>
-            <form name="addBook" id="regForm" action="/books/save" method="POST" onsubmit="return validateForm()">
+            <form name="addBook" id="regForm" action="/books/save" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
                 <table cellpadding="10" cellspacing="0">
                     <tr>
                         <td><label for="title"> Title: </label><span class="required-star">*</span></td>
@@ -72,7 +72,7 @@
                   </tr>
                     <tr>
                         <td>Image:<span class="required-star">*</span></td>
-                        <td><input type="text" name="image" id="" placeholder="Image path" required><br><span style="color: rgb(13, 32, 66);">example: /images/harrypotter.jpg</span></td>
+                        <td><input type="file" name="imageFile" id="" placeholder="Image path" required><br><span style="color: rgb(13, 32, 66);">example: /images/harrypotter.jpg</span></td>
                     </tr>
                     
                    

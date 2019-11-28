@@ -6,7 +6,8 @@ const multer = require("multer");
 const path = require("path");
 const authorsRouter = express.Router();
 
-var url = "mongodb://127.0.0.1:27017/sampledb";
+//var url = "mongodb://127.0.0.1:27017/sampledb";
+var url ="mongodb+srv://jo_ict:Jose2962@cluster0-pdsf9.mongodb.net/sampledb?retryWrites=true&w=majority";
 var imagePath = "http://localhost:3000/authors/img/";
 mongoose.connect(url, (err) => {
     if (err) throw err;
