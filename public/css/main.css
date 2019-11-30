@@ -122,3 +122,11 @@ select
     color: #acaca8;
     margin: 0 20px 0 150px;
 }
+.pipe-iw{
+    color: #6c757d;
+    margin: 0 15px;
+}
+.img-book-edit{
+    border: 1px solid #ffffff;
+    padding: 2px;
+}

@@ -45,15 +45,17 @@
                                   
                                 <div class="jumbotron jumbotron-fluid">
                                     <div class="media">
-                                        <img src="<%=books[i].image%>" class=" img-book" alt="APj" width="150px" >
+                                        <img src="<%=imagePath%><%=books[i].Image%>" class=" img-book" alt="APj" width="150px" >
                                         <div class="media-body">
-                                            <h1 class="mt-0"><%=books[i].title%></h1>
-                                            <h5> <span class="badge badge-secondary"><%=books[i].genre%> </span></h5>
+                                            <h1 class="mt-0"><%=books[i].Title%></h1>
+                                            <h5> <span class="badge badge-secondary"><%=books[i].Genre%> </span></h5>
                                             <h4><span class="label label-default"><%=books[i].author %></span></h4>
-                                            <h5>
-                                                <small><a href="/books/<%=i %>" class="text-muted">Read More</a>
-                                                    <a href="/books/edit/<%=i %>" class="text-muted- edit-disabled" >Edit</a>
-                                                    <a href="/books/remove/<%=i %>" class="text-muted">Remove</a>
+                                            <h5><br>
+                                                <small><a href="/books/<%=books[i]._id %>" class="text-muted">Read More</a>
+                                                    <span class="pipe-iw">|</span>
+                                                    <a href="/books/edit/<%=books[i]._id %>" class="text-muted " >Edit</a>
+                                                    <span class="pipe-iw">|</span>
+                                                    <a href="/books/remove/<%=books[i]._id %>" class="text-muted">Remove</a>
                                                 </small>
                                                 </h5>
                                                

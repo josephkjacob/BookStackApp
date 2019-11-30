@@ -3,8 +3,10 @@ const mongoose = require("mongoose");
 const fs = require("fs");
 const signupRouter = express.Router();
 const registerModel = require("../../model/registerModel");
-//var url = "mongodb://127.0.0.1:27017/sampledb";
-var url ="mongodb+srv://jo_ict:Jose2962@cluster0-pdsf9.mongodb.net/sampledb?retryWrites=true&w=majority";
+const bookModel = require("../../model/bookModel");
+var url = "mongodb://127.0.0.1:27017/sampledb";
+//var url ="mongodb+srv://jo_ict:Jose2962@cluster0-pdsf9.mongodb.net/sampledb?retryWrites=true&w=majority";
+var imagePath = "http://localhost:3000/authors/img/";
 mongoose.connect(url, (err) => {
     if (err) throw err;
     else console.log("Users db connection established");
@@ -64,12 +66,14 @@ function router(nav) {
                         if (req.body.username == data[i].Name && req.body.password == data[i].Password) {
                             loginSuccess = true;
                             nav[nav.length - 1].title = "LogOut";
-                            res.render("books.ejs",
+
+                            /*res.render("books.ejs",
                                 {
                                     nav,
                                     title: "Library",
                                     books: books
-                                });
+                                });*/
+                                loadBooksPage(res);
                             break;
                         }  
                     }
@@ -125,17 +129,28 @@ function router(nav) {
             regModel.Image = "";
             regModel.save((err) => {
                 if (err) throw err;
-                else console.log("user informtion added to db");
+                else {
+                    console.log("user informtion added to db");
+                    loadBooksPage(res);
+                }
             })
 
-            res.render("books.ejs",
-                {
-                    nav,
-                    title: "Libarary",
-                    books: books
-                });
-            // saveUsers();
         });
+        function loadBooksPage(res) {
+            bookModel.find({}, (aErr, data) => {
+                if (aErr) throw aErr;
+                else {
+                    res.render("books.ejs", {
+                        nav,
+                        title: "Books",
+                        books: data,
+                        imagePath: imagePath
+                    });
+                }
+            })
+        }
+
+
     return signupRouter;
 
 }
