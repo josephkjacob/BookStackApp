@@ -54,7 +54,9 @@
                                             <h4><span class="label label-default"><%=authors[i].Awards %></span></h4>
                                             <h5>
                                                 <small><a href="/authors/<%=authors[i]._id %>" class="text-muted">Read More</a>
-                                                    <a href="/authors/edit/<%=authors[i]._id %>" class="text-muted- edit-disabled" >Edit</a>
+                                                    <span class="pipe-iw">|</span>
+                                                    <a href="/authors/edit/<%=authors[i]._id %>" class="text-muted" >Edit</a>
+                                                    <span class="pipe-iw">|</span>
                                                     <a href="/authors/remove/<%=authors[i]._id %>" class="text-muted">Remove</a>
                                                 </small>
                                                 </h5>

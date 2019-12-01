@@ -132,6 +132,40 @@ function router(nav) {
                       author: authors[id]
                   });*/
         });
+        authorsRouter.route("/edit/:id")
+        .get((req, res) =>{
+            authorModel.find({ _id: req.params.id }, (err, data) => {
+                console.log(data);
+    
+                if (err) throw err;
+                else {
+                    console.log(data);
+                    res.render("editAuthor.ejs",
+                        {
+                            nav: nav,
+                            title: 'Update Author Details',
+                            author: data[0],
+                            imagePath: imagePath
+                        });
+                }
+            })
+        });
+        authorsRouter.route("/updateAuthor")
+        .post((req, res) =>{
+            var updatObj = {
+                Name: req.body.name,
+                Books: req.body.books,
+                Awards: req.body.awards,
+                Description: req.body.description,
+                Image:req.body.image
+            }
+            authorModel.updateOne({_id:req.body._id}, updatObj, (err) =>{
+                if(err) throw err;
+                else{
+                    loadAuthorsPage(res);
+                }
+            });
+        });
     authorsRouter.route("/remove/:id")
         .get((req, res) => {
             authorModel.deleteOne({_id:req.params.id}, (err) =>{
