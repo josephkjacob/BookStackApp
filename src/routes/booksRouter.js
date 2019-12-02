@@ -22,10 +22,8 @@ var storage = multer.diskStorage({
     },
     filename: function (req, file, callback) {
 
-        console.log("---------------------------------------------", req.body.title);
         var fileExt = file.originalname.split(".");
         var imageFileName = req.body.title + "." + fileExt[fileExt.length - 1];
-        console.log(imageFileName, "---------------------------------------------", req.body.title);
         /*callback(null, file.originalname);*/
         callback(null, imageFileName);
     }
@@ -33,43 +31,6 @@ var storage = multer.diskStorage({
 
 var uploads = multer({ storage: storage });
 
-var books = [
-    /*{
-        title: "Autobiography",
-        genre: "Life story",
-        author: "Mahathma Gandi",
-        image: "/images/gandhi.jpg"
-    },
-    {
-        title: "Wings of Fire",
-        genre: "Missile man",
-        author: "Dr APJ Kalaam",
-        image: "/images/wingsoffire.jpg"
-    },
-    {
-        title: "Balyakalasakhi",
-        genre: "Novel",
-        author: "Vaikkam Basheer",
-        image: "/images/balyakala.jpg"
-    },
-    {
-        title: "Da Vinci Code",
-        genre: "Fiction",
-        author: "Dan Brown",
-        image: "/images/davinci.jpg"
-    },
-    {
-        title: "Harry Potter",
-        genre: "Fiction",
-        author: "R J Rowling",
-        image: "/images/harrypotter.jpg"
-    }*/
-];
-
-/*fs.readFile("./books.json", "utf-8", (err, data) =>{
-    if(err) throw err;
-    else books = JSON.parse(data);
-})*/
 
 
 function router(nav) {
@@ -78,30 +39,15 @@ function router(nav) {
             bookModel.find({}, (err, data) => {
                 if (err) throw err;
                 else {
-                    /* console.log(data);
-                     res.render("books.ejs",
-                     {
-                         nav: nav,
-                         title: 'Books',
-                         books:data,
-                         imagePath:imagePath
-                     }
-                 ); */
+                    
                     loadBooksPage(res);
                 }
             });
-            /* res.render("books.ejs",
-                 {
-                     nav: nav,
-                     title: 'Books',
-                     books //books:books
-                 }
-             );*/
+            
         });
     booksRouter.route('/updateBook')
         .post((req, res) => {
 
-            console.log("..............", req.body);
             var updateObj = {
                 Title: req.body.title, 
                 Author: req.body.author, 
@@ -109,7 +55,6 @@ function router(nav) {
                 Description: req.body.description, 
                 Image:req.body.image
             };
-            console.log("-id = ", req.body._id);
             bookModel.updateOne({_id:req.body._id }, updateObj, (err) => {
                 if (err) throw err;
                 else {
@@ -136,7 +81,6 @@ booksRouter.route('/add')
         );
     });
 booksRouter.get("/img/:id", (req, res) => {
-    /* res.sendFile(express.static(path.join(__dirname, "../../uploads/undefined_undefined.jpg")));*/
     console.log(path.join(__dirname, "../../uploads/" + req.params.id));
     res.sendFile(path.join(__dirname, "../uploads/" + "../../uploads/" + req.params.id));
 })
@@ -156,13 +100,7 @@ booksRouter.route('/:id')
                     });
             }
         });
-        /*var id = req.params.id; // or  req.param[id]
-        res.render("book.ejs",
-            {
-                nav: nav,
-                title: 'Book',
-                book: books[id]
-            });*/
+        
     });
 
 booksRouter.route('/save')
@@ -177,21 +115,10 @@ booksRouter.route('/save')
             if (err) err;
             else {
                 console.log("Book information added to db");
-                //res.send("books added");
                 loadBooksPage(res);
             }
         });
-        console.log(req.body)
-        /* console.log(req.body);
-         books.push(req.body);
-         
-         res.render("books.ejs",
-             {
-                 nav: nav,
-                 title: 'Book Added',
-                 books
-             });
-         saveBooks();*/
+       
     });
 
 booksRouter.route("/remove/:id")
@@ -201,14 +128,7 @@ booksRouter.route("/remove/:id")
             if(err) throw err;
             else loadBooksPage(res);
         })
-        /*var id = req.params.id;
-        books.splice(id, 1);
-        res.render("books.ejs",
-            {
-                nav,
-                title: "Books",
-                books
-            })*/
+        
         
     })
 booksRouter.route("/edit/:id")
