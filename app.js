@@ -4,10 +4,12 @@ const path = require("path");
 const bodyParse = require("body-parser");
 
 var app = new express();
+
 var nav = [{link:'/books', title:'Books',books:[]}, {link:'/authors', title:'Authors'}, {link:'/books/add', title:'AddBook'}, {link:'/authors/add', title:'AddAuthor'},{link:'/signup', title:'SignUp'},{link:'/signup/login', title:'LogIn'}];
 var booksRouter = require("./src/routes/booksRouter.js")(nav);
 var authorsRouter = require("./src/routes/authorsRouter.js")(nav);
-var signupRouter = require("./src/routes/signupRouter")(nav);
+var navSignup = [{link:'/signup', title:'SignUp'},{link:'/signup/login', title:'LogIn'}];
+var signupRouter = require("./src/routes/signupRouter")(nav,navSignup);
 
 app.use(express.static(path.join(__dirname,"public")));
 app.set("views", "./src/views");
@@ -24,14 +26,22 @@ app.get("/", function(req, res){
 
 
    res.render(
-       'index.ejs',
+       'login.ejs',
        {
-           nav:nav,
+           nav:navSignup,
            title:'Library'
        }
    );
 });
-
+app.get("/home",(req, res)=>{
+    res.render(
+        'index.ejs',
+        {
+            nav:navSignup,
+            title:'Library'
+        }
+    );
+})
 
 
 app.listen(3000, () => {

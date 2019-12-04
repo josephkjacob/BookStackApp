@@ -5,8 +5,9 @@ const fs = require("fs");
 const multer = require("multer");
 const path = require("path");
 const bookModel = require("../../model/bookModel");
-var url = "mongodb://127.0.0.1:27017/sampledb";
+//var url = "mongodb://127.0.0.1:27017/sampledb";
 //var url ="mongodb+srv://jo_ict:Jose2962@cluster0-pdsf9.mongodb.net/sampledb?retryWrites=true&w=majority";
+var url = "mongodb+srv://jo_ict:2962Jose@cluster0-pdsf9.mongodb.net/sampledb?retryWrites=true&w=majority";
 
 var imagePath = "http://localhost:3000/authors/img/";
 mongoose.connect(url, (err) => {
@@ -167,13 +168,6 @@ function loadBooksPage(res) {
     })
 }
 return booksRouter;
-}
-
-function saveBooks() {
-    fs.writeFile("./books.json", JSON.stringify(books), "utf-8", (err) => {
-        if (err) throw err;
-        else console.log("Successfully stored in json file");
-    })
 }
 
 /*module.exports = booksRouter;*/

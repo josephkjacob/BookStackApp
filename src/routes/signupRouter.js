@@ -4,20 +4,21 @@ const fs = require("fs");
 const signupRouter = express.Router();
 const registerModel = require("../../model/registerModel");
 const bookModel = require("../../model/bookModel");
-var url = "mongodb://127.0.0.1:27017/sampledb";
+//var url = "mongodb://127.0.0.1:27017/sampledb";
 //var url ="mongodb+srv://jo_ict:Jose2962@cluster0-pdsf9.mongodb.net/sampledb?retryWrites=true&w=majority";
+var url = "mongodb+srv://jo_ict:2962Jose@cluster0-pdsf9.mongodb.net/sampledb?retryWrites=true&w=majority";
 var imagePath = "http://localhost:3000/authors/img/";
 mongoose.connect(url, (err) => {
     if (err) throw err;
     else console.log("Users db connection established");
 });
 
-function router(nav) {
+function router(nav, navSignup) {
     signupRouter.route("/")
         .get((req, res) => {
             res.render("signup.ejs",
                 {
-                    nav,
+                    nav:navSignup,
                     title: "Register"
                 });
         });
@@ -27,7 +28,7 @@ function router(nav) {
             nav[nav.length - 1].title = "LogIn";
             res.render("login.ejs",
                 {
-                    nav,
+                    nav:navSignup,
                     title: "LogIn",
                     loginMsg: ""
                 })
@@ -52,7 +53,7 @@ function router(nav) {
                     if (!loginSuccess) {
                         res.render("login.ejs",
                             {
-                                nav,
+                                nav:navSignup,
                                 title: "LogIn",
                                 loginMsg: "Missmatch Username or Password!"
                             })
